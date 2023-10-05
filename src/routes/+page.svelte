@@ -83,9 +83,14 @@
       }
     });
   };
-  const reloadBrowserCaptcha = () =>
+  const reloadBrowserCaptcha = () => {
+    browserCaptcha = "";
     getBrowserCaptcha(browserCaptchaOptions, browserCaptchaExtra);
-  const reloadServerCaptcha = () => getServerCaptcha(serverCaptchaOptions);
+  };
+  const reloadServerCaptcha = () => {
+    serverCaptcha = "";
+    getServerCaptcha(serverCaptchaOptions);
+  };
 
   const resetBrowserCaptchaOptions = () => {
     browserCaptchaExtra.characterAmount = 4;
@@ -102,7 +107,7 @@
   };
 </script>
 
-<div class=" w-full h-full grid grid-cols-2">
+<div class="w-full h-full grid grid-cols-2">
   <CaptchaForm
     type="browser"
     src={browserCaptcha}
