@@ -15,10 +15,12 @@ export interface IUtilities {
     maxHeight: number
     maxCharacters: number
 }
-export interface DispatchedBrowserOptionsChange {
-    options: CaptchaSyncOptions,
-    extra: ExtraOptions
+export interface IDependant {
+    font: string,
+    fontWeight: string | number,
+    fontSize: number,
 }
+
 export const fontWeightOptions: IOption[] = [
     { value: "Bolder", label: "Bolder" },
     { value: "Bold", label: "Bold" },
@@ -52,7 +54,7 @@ export const getDefaultDependant = () => ({
     fontSize: 30,
 });
 
-export const getInitialUtilities = (): IUtilities => ({
+export const getDefaultUtilities = (): IUtilities => ({
     maxWidth: 400,
     maxHeight: 96,
     maxCharacters: 30
@@ -144,3 +146,17 @@ export const deepCopy = <T>(obj: T): T => {
 
     return result;
 };
+
+export const getServerOptionsWithParsedFont = (options: CaptchaSyncOptions) => {
+    console.log(options)
+    const fullFont = options.font;
+    let [weight, size, font] = fullFont.split(" ");
+    size = size.slice(0, -2);
+    const serverOptions: CaptchaOptions = {
+        ...options,
+        fontSize: parseInt(size),
+        fontWeight: weight,
+        font,
+    };
+    return serverOptions
+}

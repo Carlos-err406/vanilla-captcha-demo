@@ -5,7 +5,7 @@
 </script>
 
 <OptionInput>
-  <input {id} type="color" class="input" bind:value />
+  <input {id} type="color" class="input" bind:value on:change/>
   <div>
     <label class="flex flex-col gap-0" for={id}>
       <slot />

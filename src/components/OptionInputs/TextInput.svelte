@@ -7,5 +7,5 @@
 
 <OptionInput column>
   <label for={id}><slot /> {value}</label>
-  <input {id} type="text" class="input py-1 px-2" {placeholder} bind:value />
+  <input {id} type="text" class="input py-1 px-2" {placeholder} bind:value on:input/>
 </OptionInput>

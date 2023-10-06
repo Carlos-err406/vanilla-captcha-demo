@@ -20,9 +20,9 @@
 <form
   action=""
   on:submit|preventDefault={handleSubmit}
-  class="w-full h-full flex flex-none"
+  class="w-full h-full flex flex-none justify-center"
 >
-  <div class="w-full flex flex-col items-center gap-4">
+  <div class="w-fit flex flex-col items-center gap-4">
     <h2 class="h2">
       <span
         class="bg-gradient-to-br bg-clip-text text-transparent box-decoration-clone whitespace-nowrap"
@@ -39,7 +39,7 @@
       type="text"
       placeholder="captcha"
       bind:value
-      class="input w-auto px-4 py-2"
+      class="input w-80 px-4 py-2"
     />
     <footer>
       <ButtonSecondary type="button" on:click={handleReload}>

@@ -18,11 +18,11 @@ export const GET: RequestHandler = async ({ cookies, url }) => {
 
 export const POST: RequestHandler = async ({ cookies, request }) => {
     const body = await request.json()
-    const { input } = body
+    const { input, caseSensitive } = body
     const answer = cookies.get("Captcha-Answer")
     if (!answer) throw error(500, "Cant validate your answer right now, please refresh the page")
 
-    const valid = validate(input, answer, { caseSensitive: false })
+    const valid = validate(input, answer, { caseSensitive: caseSensitive })
     if (!valid) throw error(401, "Wrong captcha")
 
     return new Response(null, { status: 200 })

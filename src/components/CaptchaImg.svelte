@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { scale } from "svelte/transition";
+
   export let captcha: string;
+  
 </script>
 
 <button
   title="refresh captcha"
   type="button"
+  class="transition-all duration-200"
   class:placeholder={!captcha}
   class:animate-pulse={!captcha}
   class:w-[345px]={!captcha}

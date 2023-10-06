@@ -9,7 +9,7 @@
 </script>
 
 <OptionInput column>
-  <RangeSlider name={id} {id} bind:value {step} bind:max bind:min>
+  <RangeSlider name={id} {id} bind:value {step} bind:max bind:min on:change>
     <div class="flex justify-between gap-5 pr-5 items-center">
       <label for={id}><slot /> </label>
       <div class="text-sm font-semibold">
