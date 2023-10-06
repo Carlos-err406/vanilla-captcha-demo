@@ -3,6 +3,7 @@
 </script>
 
 <button
+  title="refresh captcha"
   type="button"
   class:placeholder={!captcha}
   class:animate-pulse={!captcha}

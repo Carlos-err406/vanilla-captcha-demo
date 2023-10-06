@@ -20,10 +20,20 @@
 <form
   action=""
   on:submit|preventDefault={handleSubmit}
-  class="w-full h-full flex"
+  class="w-full h-full flex flex-none"
 >
   <div class="w-full flex flex-col items-center gap-4">
-    <h2 class="h2">Generated in <u>{type}</u></h2>
+    <h2 class="h2">
+      <span
+        class="bg-gradient-to-br bg-clip-text text-transparent box-decoration-clone whitespace-nowrap"
+        class:from-blue-500={type === "server"}
+        class:to-cyan-300={type === "server"}
+        class:from-orange-500={type === "browser"}
+        class:to-red-500={type === "browser"}
+      >
+        Generated in {type}
+      </span>
+    </h2>
     <CaptchaImg captcha={src} on:click={handleReload} />
     <input
       type="text"
